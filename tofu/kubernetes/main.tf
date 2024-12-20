@@ -94,15 +94,15 @@ module "proxmox_csi_plugin" {
   proxmox = var.proxmox
 }
 
-module "volumes" {
-  depends_on = [module.proxmox_csi_plugin]
-  source = "./bootstrap/volumes"
-
-  providers = {
+#module "volumes" {
+#  depends_on = [module.proxmox_csi_plugin]
+#  source = "./bootstrap/volumes"
+#
+#  providers = {
 #    restapi    = restapi
-    kubernetes = kubernetes
-  }
-  proxmox_api = var.proxmox
-  volumes = {
-  }
+#    kubernetes = kubernetes
+#  }
+#  proxmox_api = var.proxmox
+#  volumes = {
+#  }
 }
