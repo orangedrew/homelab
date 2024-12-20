@@ -26,30 +26,30 @@ module "talos" {
 
   nodes = {
     "ctrl-00" = {
-      host_node     = "abel"
+      host_node     = "red"
       machine_type  = "controlplane"
       ip            = "192.168.1.100"
-      mac_address   = "BC:24:11:2E:C8:00"
+      mac_address   = ""
       vm_id         = 800
       cpu           = 8
       ram_dedicated = 20480
       igpu          = true
     }
     "ctrl-01" = {
-      host_node     = "euclid"
+      host_node     = "green"
       machine_type  = "controlplane"
       ip            = "192.168.1.101"
-      mac_address   = "BC:24:11:2E:C8:01"
+      mac_address   = ""
       vm_id         = 801
       cpu           = 4
       ram_dedicated = 20480
       igpu          = true
     }
     "ctrl-02" = {
-      host_node     = "cantor"
+      host_node     = "blue"
       machine_type  = "controlplane"
       ip            = "192.168.1.102"
-      mac_address   = "BC:24:11:2E:C8:02"
+      mac_address   = ""
       vm_id         = 802
       cpu           = 4
       ram_dedicated = 4096
@@ -104,57 +104,5 @@ module "volumes" {
   }
   proxmox_api = var.proxmox
   volumes = {
-    pv-sonarr = {
-      node = "cantor"
-      size = "4G"
-    }
-    pv-radarr = {
-      node = "cantor"
-      size = "4G"
-    }
-    pv-lidarr = {
-      node = "cantor"
-      size = "4G"
-    }
-    pv-prowlarr = {
-      node = "euclid"
-      size = "1G"
-    }
-    pv-torrent = {
-      node = "euclid"
-      size = "1G"
-    }
-    pv-remark42 = {
-      node = "euclid"
-      size = "1G"
-    }
-    pv-keycloak = {
-      node = "euclid"
-      size = "2G"
-    }
-    pv-jellyfin = {
-      node = "euclid"
-      size = "12G"
-    }
-    pv-netbird-signal = {
-      node = "abel"
-      size = "1G"
-    }
-    pv-netbird-management = {
-      node = "abel"
-      size = "1G"
-    }
-    pv-plex = {
-      node = "abel"
-      size = "12G"
-    }
-    pv-prometheus = {
-      node = "abel"
-      size = "10G"
-    }
-    pv-single-database = {
-      node = "euclid"
-      size = "4G"
-    }
   }
 }
