@@ -99,7 +99,7 @@ module "volumes" {
   source = "./bootstrap/volumes"
 
   providers = {
-    restapi    = restapi
+#    restapi    = restapi
     kubernetes = kubernetes
   }
   proxmox_api = var.proxmox
