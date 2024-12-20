@@ -26,7 +26,7 @@ module "talos" {
 
   nodes = {
     "ctrl-00" = {
-      host_node     = "red"
+      host_node     = "pve"
       machine_type  = "controlplane"
       ip            = "10.0.0.10"
       mac_address   = "BC:24:11:2E:C8:00"
@@ -35,27 +35,27 @@ module "talos" {
       ram_dedicated = 20480
       igpu          = true
     }
-    "ctrl-01" = {
-      host_node     = "green"
-      machine_type  = "controlplane"
-      ip            = "10.0.0.11"
-      mac_address   = "BC:24:11:2E:C8:01"
-      vm_id         = 801
-      cpu           = 4
-      ram_dedicated = 20480
-      igpu          = true
-    }
-    "ctrl-02" = {
-      host_node     = "blue"
-      machine_type  = "controlplane"
-      ip            = "10.0.0.12"
-      mac_address   = "BC:24:11:2E:C8:02"
-      vm_id         = 802
-      cpu           = 4
-      ram_dedicated = 4096
-    }
+#    "ctrl-01" = {
+#      host_node     = "green"
+#      machine_type  = "controlplane"
+#      ip            = "10.0.0.11"
+#      mac_address   = "BC:24:11:2E:C8:01"
+#      vm_id         = 801
+#      cpu           = 4
+#      ram_dedicated = 20480
+#      igpu          = true
+#    }
+#    "ctrl-02" = {
+#      host_node     = "blue"
+#      machine_type  = "controlplane"
+#      ip            = "10.0.0.12"
+#      mac_address   = "BC:24:11:2E:C8:02"
+#      vm_id         = 802
+#      cpu           = 4
+#      ram_dedicated = 4096
+#    }
     "work-00" = {
-      host_node     = "red"
+      host_node     = "pve"
       machine_type  = "worker"
       ip            = "10.0.0.20"
       mac_address   = "BC:24:11:2E:A8:00"
