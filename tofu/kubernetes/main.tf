@@ -31,7 +31,7 @@ module "talos" {
       ip            = "10.0.0.10"
       mac_address   = "BC:24:11:2E:C8:00"
       vm_id         = 800
-      cpu           = 8
+      cpu           = 2
       ram_dedicated = 20480
       igpu          = true
     }
@@ -41,7 +41,7 @@ module "talos" {
 #      ip            = "10.0.0.11"
 #      mac_address   = "BC:24:11:2E:C8:01"
 #      vm_id         = 801
-#      cpu           = 4
+#      cpu           = 2
 #      ram_dedicated = 20480
 #      igpu          = true
 #    }
@@ -51,7 +51,7 @@ module "talos" {
 #      ip            = "10.0.0.12"
 #      mac_address   = "BC:24:11:2E:C8:02"
 #      vm_id         = 802
-#      cpu           = 4
+#      cpu           = 2
 #      ram_dedicated = 4096
 #    }
     "work-00" = {
@@ -60,7 +60,7 @@ module "talos" {
       ip            = "10.0.0.20"
       mac_address   = "BC:24:11:2E:A8:00"
       vm_id         = 810
-      cpu           = 8
+      cpu           = 4
       ram_dedicated = 4096
     }
   }
