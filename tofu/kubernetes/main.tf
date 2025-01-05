@@ -6,8 +6,8 @@ module "talos" {
   }
 
   image = {
-    version = "v1.8.0"
-    update_version = "v1.8.2" # renovate: github-releases=siderolabs/talos
+    version = "v1.9.1"
+    update_version = "v1.9.1" # renovate: github-releases=siderolabs/talos
     schematic = file("${path.module}/talos/image/schematic.yaml")
   }
 
@@ -20,7 +20,7 @@ module "talos" {
     name            = "talos"
     endpoint        = "10.0.0.15"
     gateway         = "10.0.0.1"
-    talos_version   = "v1.8"
+    talos_version   = "v1.9.1"
     proxmox_cluster = "homelab"
   }
 
@@ -33,7 +33,7 @@ module "talos" {
       vm_id         = 800
       cpu           = 2
       ram_dedicated = 20480
-      igpu          = true
+      gpu          = false
     }
 #    "ctrl-01" = {
 #      host_node     = "green"
@@ -43,7 +43,7 @@ module "talos" {
 #      vm_id         = 801
 #      cpu           = 2
 #      ram_dedicated = 20480
-#      igpu          = true
+#      igpu          = false
 #    }
 #    "ctrl-02" = {
 #      host_node     = "blue"
