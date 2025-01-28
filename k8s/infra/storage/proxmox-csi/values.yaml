@@ -7,3 +7,4 @@ storageClass:
     storage: local-lvm
     mountOptions:
       - noatime
+    volumeBindingMode: Immediate
