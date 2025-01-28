@@ -7,8 +7,8 @@ configs:
     plugins:
       kustomize-build-with-helm:
         generate:
-          command: [ "sh", "-c" ]
-          args: [ "kustomize build --enable-helm" ]
+          command: ["sh", "-c"]
+          args: ["kustomize build --enable-helm"]
   params:
     server.insecure: true
 
@@ -57,7 +57,7 @@ repoServer:
       configMap:
         name: argocd-cmp-cm
     - name: cmp-tmp
-      emptyDir: { }
+      emptyDir: {}
   resources:
     requests:
       cpu: 100m
@@ -77,7 +77,7 @@ repoServer:
         seccompProfile:
           type: RuntimeDefault
         capabilities:
-          drop: [ "ALL" ]
+          drop: ["ALL"]
       volumeMounts:
         - name: plugins
           mountPath: /home/argocd/cmp-server/plugins
@@ -86,6 +86,9 @@ repoServer:
           subPath: kustomize-build-with-helm.yaml
         - mountPath: /tmp
           name: cmp-tmp
+
+image:
+  imagePullSecrets: [githubpat]
 
 applicationSet:
   resources:
