@@ -1,0 +1,59 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ template "firefly-db.fullname" . }}-restore
+  labels:
+    app: {{ template "firefly-db.name" . }}
+    chart: {{ template "firefly-db.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  ttlSecondsAfterFinished: 100
+  parallelism: 1    
+  completions: 1
+  template:
+    spec:
+      containers:
+      - name: {{ template "firefly-db.fullname" . }}-restore
+        image: alpine:3.13
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        {{- if not .Values.configs.existingSecret }}
+        - configMapRef:
+            name: {{ template "firefly-db.fullname" . }}-config
+        {{- else }}
+        - secretRef:
+            name: {{ .Values.configs.existingSecret }}
+        {{- end }}
+        command: 
+        - /bin/sh
+        - -c
+        - |
+          apk update
+          apk add curl
+          apk add postgresql
+          {{- if eq .Values.backup.destination "http" }}
+          echo "Downloading latest backup"
+          curl $RESTORE_URL --output /var/lib/backup/${DBNAME}.sql
+          {{- end }}
+          echo "Performing restore of db"
+          ls -la
+          psql -h $DBHOST -p $DBPORT -U $DBUSER < /var/lib/backup/${DBNAME}.sql
+          echo "done"
+        volumeMounts:
+          - name: backup-storage
+            mountPath: /var/lib/backup
+      restartPolicy: Never
+      volumes:
+        - name: backup-storage
+          {{- if eq .Values.backup.destination "pvc" }}
+          persistentVolumeClaim:
+            claimName: {{ default (printf "%s-%s" (include "firefly-db.fullname" .) "backup-storage-claim") .Values.backup.pvc.existingClaim }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
