@@ -16,7 +16,7 @@ firefly-db:
     RESTORE_URL: ""
     BACKUP_URL: ""
     PGPASSWORD: "YOURDBPASSWORD"
-    DBHOST: firefly-db
+    DBHOST: firefly-firefly-db
     DBPORT: "5432"
     DBNAME: firefly
     DBUSER: firefly
