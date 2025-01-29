@@ -8,7 +8,7 @@ firefly-db:
 
   storage:
     class: proxmox-csi
-    accessModes: ~  # Change as needed for your storageClass https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+    accessModes: ~ # Change as needed for your storageClass https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
     dataSize: 1Gi
 
   # environment variables
@@ -16,7 +16,7 @@ firefly-db:
     RESTORE_URL: ""
     BACKUP_URL: ""
     PGPASSWORD: "YOURDBPASSWORD"
-    DBHOST: firefly-firefly-db
+    DBHOST: firefly-db
     DBPORT: "5432"
     DBNAME: firefly
     DBUSER: firefly
@@ -31,4 +31,3 @@ firefly-iii:
 importer:
   # -- Set to false to not deploy the importer
   enabled: true
-
