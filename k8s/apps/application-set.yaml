@@ -14,7 +14,7 @@ spec:
           - path: k8s/apps/*
   template:
     metadata:
-      name: '{{ path.basename }}'
+      name: "{{ path.basename }}"
       labels:
         dev.stonegarden: application
       finalizers:
@@ -24,11 +24,11 @@ spec:
       source:
         repoURL: https://github.com/orangedrew/homelab
         targetRevision: HEAD
-        path: '{{ path }}'
+        path: "{{ path }}"
       destination:
         name: in-cluster
         namespace: argocd
-      syncPolicy:
-        automated:
-          selfHeal: true
-          prune: true
+      syncPolicy: null
+#        automated:
+#          selfHeal: true
+#          prune: true
