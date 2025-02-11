@@ -8,8 +8,8 @@ resources:
 
 helmCharts:
   - name: firefly-iii-stack
-    repo: https://firefly-iii.github.io/kubernetes
+    repo: https://github.com/firefly-iii/firefly-iii/
     releaseName: firefly
     namespace: firefly
     valuesFile: values.yaml
-    version: 0.8.1
+    version: 0.8.0

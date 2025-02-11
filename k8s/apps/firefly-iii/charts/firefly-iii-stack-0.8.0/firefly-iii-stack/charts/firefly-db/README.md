@@ -1,6 +1,6 @@
 # firefly-db
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Installs a postgres db for Firefly III
 
@@ -8,7 +8,7 @@ Installs a postgres db for Firefly III
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| morremeyer | <firefly-iii@mor.re> |  |
+| morremeyer | firefly-iii@mor.re |  |
 ## Source Code
 
 * <https://github.com/firefly-iii/kubernetes/tree/main/charts/firefly-db>
@@ -31,11 +31,6 @@ storage:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| backup.destination | string | `"http"` |  |
-| backup.pvc.accessModes | string | `"ReadWriteOnce"` |  |
-| backup.pvc.class | string | `nil` |  |
-| backup.pvc.dataSize | string | `"1Gi"` |  |
-| backup.pvc.existingClaim | string | `""` | Use an existing PersistentVolumeClaim, overrides values above |
 | backupSchedule | string | `"0 3 * * *"` |  |
 | configs.BACKUP_URL | string | `""` |  |
 | configs.DBHOST | string | `"firefly-firefly-db"` |  |

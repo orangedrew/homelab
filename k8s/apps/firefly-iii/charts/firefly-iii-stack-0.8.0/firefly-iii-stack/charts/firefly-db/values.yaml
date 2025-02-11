@@ -10,16 +10,6 @@ storage:
   # -- Use an existing PersistentVolumeClaim, overrides values above
   existingClaim: ""
 
-backup:
-  # There are two possible backup destinations currently implemented, http and pvc
-  destination: http
-  pvc:
-    class: ~
-    accessModes: ReadWriteOnce
-    dataSize: 1Gi
-    # -- Use an existing PersistentVolumeClaim, overrides values above
-    existingClaim: ""
-
 configs:
   RESTORE_URL: ""
   BACKUP_URL: ""

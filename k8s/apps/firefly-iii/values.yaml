@@ -27,6 +27,8 @@ firefly-db:
 firefly-iii:
   # -- Set to false to not deploy Firefly III
   enabled: true
+  env:
+    DB_HOST: "firefly-db"
 
 importer:
   # -- Set to false to not deploy the importer

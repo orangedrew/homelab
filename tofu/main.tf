@@ -75,7 +75,7 @@ module "talos" {
     "work-02" = {
       host_node     = "pve1"
       machine_type  = "worker"
-      ip            = "10.0.0.31"
+      ip            = "10.0.0.32"
       mac_address   = "BC:24:11:2E:A8:00"
       vm_id         = 812
       cpu           = 4
