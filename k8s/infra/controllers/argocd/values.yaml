@@ -2,6 +2,9 @@ configs:
   cm:
     create: true
     application.resourceTrackingMethod: "annotation+label"
+    admin:
+      enabled: false
+
   cmp:
     create: true
     plugins:
@@ -88,7 +91,7 @@ repoServer:
           name: cmp-tmp
 
 image:
-  imagePullSecrets: [githubpat]
+imagePullSecrets: [githubpat]
 
 applicationSet:
   resources:
