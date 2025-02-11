@@ -4,6 +4,9 @@ configs:
     application.resourceTrackingMethod: "annotation+label"
     admin:
       enabled: false
+    users:
+      anonymous:
+        enabled: true
 
   cmp:
     create: true
