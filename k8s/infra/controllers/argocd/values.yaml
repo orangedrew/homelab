@@ -16,7 +16,8 @@ configs:
           command: ["sh", "-c"]
           args: ["kustomize build --enable-helm"]
   params:
-    server.insecure: true
+    server:
+      insecure: true
 
 crds:
   install: true
@@ -54,6 +55,8 @@ server:
       memory: 64Mi
     limits:
       memory: 1Gi
+  config:
+    kustomize.buildOptions: --enable-helm
 
 repoServer:
   containerSecurityContext:
