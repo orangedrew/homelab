@@ -5,6 +5,7 @@ namespace: firefly
 
 resources:
   - ns.yaml
+  - ./secret.yaml
 
 helmCharts:
   - name: firefly-iii-stack

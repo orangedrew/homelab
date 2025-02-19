@@ -29,6 +29,8 @@ firefly-iii:
   enabled: true
   env:
     DB_HOST: "firefly-db"
+  config:
+    existingSecret: firefly-config
 
 importer:
   # -- Set to false to not deploy the importer
