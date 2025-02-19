@@ -8,7 +8,7 @@ firefly-db:
 
   storage:
     class: ~
-    accessModes: ~  # Change as needed for your storageClass https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+    accessModes: ~ # Change as needed for your storageClass https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
     dataSize: 1Gi
 
   # environment variables
@@ -27,6 +27,13 @@ firefly-db:
 firefly-iii:
   # -- Set to false to not deploy Firefly III
   enabled: true
+  config:
+    existingSecret:
+    credentials:
+      username: "firefly"
+      password: "your-db-password"
+      database: "firefly"
+      rootPassword: "your-root-password"
 
 importer:
   # -- Set to false to not deploy the importer
